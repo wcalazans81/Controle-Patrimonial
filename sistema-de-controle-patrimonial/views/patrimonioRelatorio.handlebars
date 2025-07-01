@@ -1,0 +1,91 @@
+{{!< main}}
+<div class="cab">
+    <h1 class="col-6 offset-3 text-center" id="t1">Controle de Patrimônio AFFEMG</h1>
+    <h3 class="col-6 offset-3 text-center" id="t1">Relatório de Patrimônio</h3>
+</div>
+<div class="container mt-5 col-3 offset-1">
+    <div class="text-center my-3">
+        <acronym title="Click para Buscar Patrimônio">
+            <button id="btnMostrarBusca_13" class="btn btn-outline-secondary">
+                🔍
+            </button>
+        </acronym>
+        <input type="text" id="campoBusca_13" class="form-control mt-2 col-4 offset-4"
+               placeholder="Digite o número do patrimônio..." autocomplete="on"
+               style="display: none;">
+        <button id="btnBuscarPatrimonio_13" class="btn btn-primary mt-2">Buscar Patrimônio</button>
+    </div>
+</div>
+
+
+<main class="container mt-5 col-6 offset-3">
+    <form action="/patrimonioRelatorio" method="get" id="filtro-relatorio">
+        <div class="form-group">
+            <label>Opções de Relatório:</label><br>
+           
+            {{!-- Opções de Empresa --}}
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="empresaA" id="affemg" value="AFFEMG" checked>
+                <label class="form-check-label" for="affemg">AFFEMG</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="empresaA" id="fundaffemg" value="FUNDAFFEMG">
+                <label class="form-check-label" for="fundaffemg">FUNDAFFEMG</label>
+            </div>
+             <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="empresaA" id="fisco" value="FISCO CORRETORA">
+                <label class="form-check-label" for="fisco">FISCO CORRETORA</label>
+            </div>
+            {{!-- Opções de Destino --}}
+            <div><label>Escolha o Destino:</label></div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="destinoA" id="uso" value="Em Uso" checked>
+                <label class="form-check-label" for="uso">Em uso</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="destinoA" id="realocado" value="Realocado">
+                <label class="form-check-label" for="realocado">Realocado</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="destinoA" id="indefinido" value="Uso Indefinido">
+                <label class="form-check-label" for="indefinido">Uso Indefinido</label>
+            </div>
+
+            <div class="mt-3 text-center">
+                <button id="buscar_13" type="button" class="btn btn-warning">Buscar</button>
+                <button id="limpar13" type="button" class="btn btn-danger">Limpar</button>
+                <button type="button" class="btn btn-success" onclick="salvarPDF()">Salvar em PDF</button>  
+                <a class="btn btn-outline-primary" href="/">Voltar</a>          
+            </div>
+        </div>
+    </form>
+
+    <h4 id="subtitulo"></h4>
+    
+    {{!-- Área para exibir os resultados da busca --}}
+<div class="container px-2" >
+    <div class="row justify-content-center" id="listaPatrimonios">
+        {{#each patrimonioRelatorioA}}
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card">
+                    <div class="card-body">
+                        <p><strong>Andar:</strong> {{andarA}}</p>
+                        <p><strong>N° do Patrimônio:</strong> {{NpatrimonioA}}</p>
+                        <p><strong>Empresa:</strong> {{empresaA}}</p>
+                        <p><strong>Nome:</strong> {{nomeA}}</p>
+                        <p><strong>Setor:</strong> {{setorA}}</p>
+                        <p><strong>Data:</strong> {{dataA}}</p>
+                        <p><strong>Descrição:</strong> {{descricaoA}}</p>
+                        <p><strong>Destino:</strong> {{destinoA}}</p>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>
+</mai>
+
+<script src="/js/patrimonioRelatorio.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+

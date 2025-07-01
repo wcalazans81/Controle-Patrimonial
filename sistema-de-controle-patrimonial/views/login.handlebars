@@ -1,0 +1,43 @@
+<div class="container mt-5" style="max-width: 500px;">
+  <strong>
+    <h3 class="mb-4">Login Patrimônio AFFEMG</h3>
+  </strong>
+
+  {{#if success_msg}}
+    <div class="alert alert-success">{{success_msg}}</div>
+  {{/if}}
+
+  {{#if error_msg}}
+    <div class="alert alert-danger">{{error_msg}}</div>
+  {{/if}}
+
+  <form action="/login" method="POST">
+    <div class="mb-3">
+      <label for="email" class="form-label">E-mail</label>
+      <input type="email" name="email" class="form-control" required>
+    </div>
+
+    <div class="mb-3 position-relative">
+      <label for="senhaInput" class="form-label">Senha</label>
+      <input type="password" class="form-control pe-5" id="senhaInput" name="senha" required>
+      <button type="button" id="toggleSenha"
+      class="btn position-absolute top-50 end-0 translate-middle-y me-2 p-0 border-0 bg-transparent"
+      style="z-index: 10; height: 2px; width: 38px;">
+      <i class="bi bi-eye fs-5" id="iconeSenha"></i>
+      </button>
+    </div>
+    <div class="d-grid">
+      <button class="btn btn-primary" type="submit">Entrar</button>
+    </div>
+  </form>
+
+  <div class="mt-3">
+    <a href="/recuperar">Esqueci minha senha</a> |
+    <a href="/register">Cadastrar</a>
+  </div>
+  <div class="mt-3">
+    <p class="text-center mt-3">
+    <a href="/admin/login" class="btn btn-outline-dark btn-sm">Entrar como Administrador</a>
+    </p>
+  </div>
+</div>

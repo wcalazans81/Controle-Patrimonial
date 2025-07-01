@@ -1,0 +1,28 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* Footer */
+.card-footer {
+    background-color: rgb(105, 103, 103);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    line-height: 2em;
+    width: 100%;
+    font-size: 1rem;
+    border-radius: 10px 10px 0 0;
+}
+
+.card-footer {
+    /* Tudo que já tem + */
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+}

@@ -1,0 +1,29 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Painel Administrativo</h2>
+
+  {{#if success_msg}}
+    <div class="alert alert-success text-center">{{success_msg}}</div>
+  {{/if}}
+
+  {{#if error_msg}}
+    <div class="alert alert-danger text-center">{{error_msg}}</div>
+  {{/if}}
+
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="list-group">
+        <a href="/admin/aprovar" class="list-group-item list-group-item-action">
+          ✅ Aprovar Usuários Pendentes
+        </a>
+        <a href="/admin/logs" class="list-group-item list-group-item-action">
+            🕵️‍♂️ Ver Logs de Acesso</a>
+        <a href="/login" class="list-group-item list-group-item-action">
+          🏠 Voltar ao Sistema Principal
+        </a>
+        <a href="/logout" class="list-group-item list-group-item-action text-danger">
+          🚪 Sair
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,94 @@
+body {
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+.cab #t1 {
+  font-size: 1.3em;
+  margin-top: 50px;
+}
+
+.andar {
+  width: 100%;
+}
+
+form input,
+form label,
+form button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.textpatrimonio {
+  font-size: 1.2em;
+  padding: 10px;
+  position: static;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  left: 0;
+  bottom: 0;
+}
+
+.img-affemg,
+.img-funda {
+  position: static;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.img-affemg,
+.img-funda {
+  position: static;
+  width: 90%;
+  margin: 20px auto; /* centraliza horizontalmente e afasta verticalmente */
+  display: block;
+}
+
+/* Reforça posicionamento correto do botão */
+#toggleSenha {
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(20%) !important;
+  right: 0.75rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: auto !important;
+  width: auto !important;
+  background: transparent !important;
+  border: none !important;
+  z-index: 10 !important;
+}
+
+/* Garante que o campo de senha tenha espaço para o botão */
+#senhaInput {
+  padding-right: 2.5rem !important;
+  position: relative;
+}
+
+/* Posição genérica para botões após input de senha */
+input[type="password"] + button {
+  position: absolute !important;
+   top: 50% !important;
+  transform: translateY(20%) !important;
+  right: 0.75rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: auto !important;
+  width: auto !important;
+  background: transparent !important;
+  border: none !important;
+  z-index: 10 !important;
+}
+
+/* Espaço no input para não sobrepor texto */
+input[type="password"] {
+  padding-right: 2.5rem !important;
+}
+
+/* Em telas pequenas, traz o botão um pouco mais para dentro */
+@media (max-width: 576px) {
+  input[type="password"] + button {
+    right: 0.5rem !important;
+  }
+}

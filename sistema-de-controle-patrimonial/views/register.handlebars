@@ -1,0 +1,73 @@
+<div class="container mt-5" style="max-width: 600px;">
+  <h3 class="mb-4">Cadastro</h3>
+
+  {{#if success_msg}}
+    <div class="alert alert-success">{{success_msg}}</div>
+  {{/if}}
+
+  {{#if error_msg}}
+    <div class="alert alert-danger">{{error_msg}}</div>
+  {{/if}}
+
+  <form action="/register" method="POST">
+    <div class="mb-3">
+      <label for="nome" class="form-label">Nome completo</label>
+      <input type="text" name="nome" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">E-mail</label>
+      <input type="email" name="email" class="form-control" required>
+    </div>
+
+    <!-- Campo Senha -->
+    <div class="mb-3 position-relative">
+      <label for="senhaInput" class="form-label">Senha</label>
+      <input type="password" class="form-control pe-5" id="senhaInput" name="senha" required>
+      <button type="button"
+        class="btn position-absolute top-50 end-0 me-2 p-0 border-0 bg-transparent"
+        style="z-index: 10; transform: translateY(-10%);"
+        onclick="toggleSenhaVisivel('senhaInput', 'iconeSenha')">
+        <i class="bi bi-eye fs-5" id="iconeSenha"></i>
+      </button>
+    </div>
+
+    <!-- Campo Confirmar Senha -->
+    <div class="mb-3 position-relative">
+      <label for="confirmarSenha" class="form-label">Confirmar Senha</label>
+      <input type="password" class="form-control pe-5" id="confirmarSenha" name="confirmarSenha" required>
+      <button type="button"
+        class="btn position-absolute top-50 end-0 me-2 p-0 border-0 bg-transparent"
+        style="z-index: 10; transform: translateY(-10%);"
+        onclick="toggleSenhaVisivel('confirmarSenha', 'iconeConfirmarSenha')">
+        <i class="bi bi-eye fs-5" id="iconeConfirmarSenha"></i>
+      </button>
+    </div>
+
+
+    <div class="d-grid">
+      <button class="btn btn-success" type="submit">Cadastrar</button>
+    </div>
+  </form>
+
+  <div class="mt-3">
+    <a href="/login">Já tem conta? Entrar</a>
+  </div>
+</div>
+
+<script>
+  function toggleSenhaVisivel(inputId, iconeId) {
+    const input = document.getElementById(inputId);
+    const icone = document.getElementById(iconeId);
+
+    if (input.type === 'password') {
+      input.type = 'text';
+      icone.classList.remove('bi-eye');
+      icone.classList.add('bi-eye-slash');
+    } else {
+      input.type = 'password';
+      icone.classList.remove('bi-eye-slash');
+      icone.classList.add('bi-eye');
+    }
+  }
+</script>

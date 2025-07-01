@@ -1,0 +1,61 @@
+{{!< main}}  
+<div class="cab">
+    <h1 class="col-6 offset-3 text-center" id="t1">Controle de Patrimônio AFFEMG</h1>
+    <h3 class="col-6 offset-3 text-center" id="t1">Editar Patrimônio</h3>
+</div>
+{{!--Rota ('/patrimonio_03')Para controle de patrimônio andar -1 --}}
+
+<main class="container mt-5">
+    <div class="container mt-4">
+       <form action="/patrimonioAtualizar_03/{{patrimonio.id}}" method="post" id="formPatrimonio">
+        <div class="form-group mt-4">
+        <input type="text" class="form-control" name="andar_03" id="andar_03" placeholder="Digite o andar" value="{{patrimonio.andar_03}}" readonly>
+        <input type="text" class="form-control" name="patrimonio_03" id="patrimonio_03" placeholder="N° de Patrimônio" value="{{patrimonio.Npatrimonio_03}}" readonly>
+        <input type="text" class="form-control" name="empresa_03" id="empresa_03" placeholder="Empresa" value="{{patrimonio.empresa_03}}" readonly>
+        <input type="text" class="form-control" name="nome_03" id="nome_03" placeholder="Nome" value="{{patrimonio.nome_03}}" required>
+        <input type="text" class="form-control" name="setor_03" id="setor_03" placeholder="setor" value="{{patrimonio.setor_03}}" required><br>
+        <label class="form-control">Data: {{formatDate patrimonio.data_03}}</label>
+        <input type="text" class="form-control" name="descricao_03" id="descricao_03" maxlength="200" placeholder="Digite a descrição do Patrimônio..." value="{{patrimonio.descricao_03}}" required>
+              <label>Escolha o Destino:</label><br>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="destino_03" id="affemg_03" value="Em Uso" checked>
+                <label class="form-check-label" for="affemg">Em uso</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="destino_03" id="fundaffemg_03" value="Realocado">
+                <label class="form-check-label" for="fundaffemg">Realocado</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="destino_03" id="fisco_03" value="Uso Indefinido">
+                <label class="form-check-label" for="fisco">Uso Indefinido</label>
+            </div>  
+                <input type="submit" class="btn btn-primary" value="Cadastrar/Salvar" id="salvar_03">
+                <a class="btn btn-outline-primary" href="/patrimonio_03">Voltar</a>
+            </div>
+    </form>
+
+    <div class="container">
+        <div class="row">
+            {{#each patrimonio_03}}
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="texto">
+                            <p>Andar: {{andar_03}}</p>
+                            <p>N° do Patrimônio: {{Npatrimonio_03}}</p>
+                            <p>Empresa: {{empresa_03}}</p>
+                            <p>Nome: {{nome_03}}</p>
+                            <p>Setor: {{setor_03}}</p>
+                            <p>Data: {{formatDate data_03}}</p>
+                            <p>Descrição: {{descricao_03}}</p>
+                            <p>Destino: {{destino_03}}</p>
+                        </div>
+                    <a href="/patrimonioEditar_03/{{id}}" class="btn btn-warning">Editar</a>
+                        <a href="/#/{{id}}" class="btn btn-warning">Doado</a>
+                        <a class="btn btn-danger" href="/#/{{id}}">Descartado</a>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</main>
+<script src="/js/patrimonioEditar_03.js"></script>

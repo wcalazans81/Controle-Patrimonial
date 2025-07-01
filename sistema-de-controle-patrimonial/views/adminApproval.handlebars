@@ -1,0 +1,41 @@
+<div class="container mt-5">
+  <h3>Usuários Pendentes de Aprovação</h3>
+
+  {{#if success_msg}}
+    <div class="alert alert-success">{{success_msg}}</div>
+  {{/if}}
+
+  {{#if error_msg}}
+    <div class="alert alert-danger">{{error_msg}}</div>
+  {{/if}}
+
+  {{#if usuarios.length}}
+    <table class="table table-bordered mt-4">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each usuarios}}
+          <tr>
+            <td>{{this.nome}}</td>
+            <td>{{this.email}}</td>
+            <td>
+              <form method="POST" action="/admin/aprovar/{{this.id}}">
+                <button class="btn btn-success btn-sm">Aprovar</button>
+              </form>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  {{else}}
+    <div class="alert alert-info mt-3">Nenhum usuário pendente.</div>
+  {{/if}}
+</div>
+<div>
+  <a href="/admin/dashboard" class="list-group-item list-group-item-action text-danger">🚪 Sair</a>
+</div>

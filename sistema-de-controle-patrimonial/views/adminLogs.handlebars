@@ -1,0 +1,36 @@
+<div class="container mt-5">
+  <h3 class="text-center mb-4">📋 Logs de Acesso ao Sistema</h3>
+
+  {{#if logs.length}}
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped table-hover text-center align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>IP</th>
+            <th>Navegador</th>
+            <th>Data/Hora</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each logs}}
+          <tr>
+            <td>{{this.nome}}</td>
+            <td><a href="mailto:{{this.email}}">{{this.email}}</a></td>
+            <td>{{this.ip}}</td>
+            <td>{{this.navegador}}</td>
+            <td>{{formatDate this.data_hora}}</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  {{else}}
+    <div class="alert alert-info text-center">Nenhum acesso registrado ainda.</div>
+  {{/if}}
+
+  <div class="text-end mt-4">
+    <a href="/admin/dashboard" class="btn btn-outline-danger">← Voltar para o Painel</a>
+  </div>
+</div>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patrimônio AFFEMG e FUNDFFEMG</title>
+    <link rel="icon" type="image/x-icon" href="/imagens/manutencao.ico">
+    <link rel="shortcut icon" href="/imagens/patrimonio.ico" type="image/x-icon">
+    <link rel="icon" type="image/x-icon" href="/imagens/patrimonio.ico">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/estilo.css">
+    <link rel="stylesheet" href="/css/tablet.css" media="screen and (max-width: 1024px)">
+    <link rel="stylesheet" href="/css/mobile.css" media="screen and (max-width: 576px)">
+    <link rel="stylesheet" href="/css/failsafe.css">
+
+</head>
+<body>
+    {{#if user}}
+     <div class="fixed-top fixed-top-userbar d-flex justify-content-between align-items-center">
+        <div>Olá, <strong>{{user.nome}}</strong></div>
+        <a href="/logout" class="btn btn-outline-danger btn-sm d-flex align-items-center">
+        <i class="bi bi-box-arrow-right me-1"></i> Sair
+        </a>
+     </div>
+    {{/if}}
+
+
+    <!-- Modal de Escolha de Ação ao pressionar Enter -->
+    <div class="modal fade" id="enterActionModal" tabindex="-1" aria-labelledby="enterActionModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content p-3">
+        <div class="modal-header">
+            <h5 class="modal-title">O que deseja fazer?</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body text-center">
+            <p>Você pressionou <kbd>Enter</kbd>. Selecione uma ação:</p>
+            <div class="d-grid gap-2">
+            <button class="btn btn-primary" id="btnModalEntrar">Entrar</button>
+            <button class="btn btn-success" id="btnModalCadastrar">Cadastrar</button>
+            <button class="btn btn-warning" id="btnModalRecuperar">Recuperar Senha</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+    {{{body}}}
+    {{#if user}}
+        <div class="text-end p-2 small text-muted">
+            Logado como: {{user.nome}} ({{user.email}})
+            {{#if user.is_admin}} - Administrador{{/if}}
+        </div>
+    {{/if}}
+
+    <script src="/js/relatorio.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/patrimonio.js"></script> {{!-- Seu script personalizado --}}
+    <script src="/js/patrimonioRelatorio.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/atualizador.js"></script>
+
+    <!-- Modal de Senha com Bootstrap -->
+    <div class="modal fade" id="senhaModal" tabindex="-1" role="dialog" aria-labelledby="senhaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Acesso Restrito</h5>
+            <button type="button" class="close btn btn-sm btn-danger" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body text-center">
+            <p>Digite a senha para acessar:</p>
+            <div class="input-group mb-3">
+            <input type="password" id="senhaInput" class="form-control" placeholder="Senha">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" id="toggleSenha">
+                <i class="bi bi-eye" id="iconeSenha"></i>
+                </button>
+            </div>
+            </div>
+            <div>
+            <button id="senhaOk" class="btn btn-success">OK</button>
+            <button class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+
+</body>
+</html>

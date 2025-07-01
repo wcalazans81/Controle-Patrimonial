@@ -1,0 +1,76 @@
+{{!< main}}
+<div class="cab">
+    <h1 class="col-6 offset-3 text-center" id="t1">Controle de Patrimônio AFFEMG</h1>
+    <h3 class="col-6 offset-3 text-center" id="t1">Editar Patrimônio</h3>
+</div>
+<div class="container mt-5 col-3 offset-1">
+    <div class="text-center my-3">
+        <acronym title="Click para Buscar Patimônio">
+            <button id="btnMostrarBusca_02" class="btn btn-outline-secondary">
+                🔍
+            </button>
+        </acronym>
+        <input type="text" id="campoBusca_02" class="form-control d-none mt-2 col-4 offset-4" placeholder="Digite o número do patrimônio..." autocomplete="on">
+        <button id="btnBuscarPatrimonio_02" class="btn btn-primary mt-2 d-none">Buscar Patrimônio</button>
+    </div>
+</div>
+{{!--Rota ('/patrimonio_02')Para controle de patrimônio andar 1 --}}
+<main class="container mt-5">
+    <div class="container mt-4">
+        <form action="/cadastrar_02" method="post" id="formPatrimonio">
+            <div class="form-group mt-4">
+                <input type="text" class="form-control" name="andar_02" id="andar_02" placeholder="Digite o andar" autocomplete="on" required>
+                <input type="text" class="form-control" name="patrimonio_02" id="patrimonio_02" placeholder="N° de Patrimônio" autocomplete="on" required>
+                <input type="text" class="form-control" name="empresa_02" id="empresa_02" placeholder="Empresa" autocomplete="name" required>
+                <input type="text" class="form-control" name="nome_02" id="nome_02" placeholder="Nome" autocomplete="on" required>
+                <input type="text" class="form-control" name="setor_02" id="setor_02" placeholder="setor" autocomplete="on" required><br>
+                {{!--<input type="date" class="form-control" name="data" id="idata">--}}
+                <label class="form-control" name="data_02" id="data_02">Preenchimento de data Automática</label>
+                <input type="text" class="form-control" name="descricao_02" id="descricao_02" maxlength="200" placeholder="Digite a descrição do Patrimônio..." autocomplete="on" required>
+                <label>Escolha o Destino:</label><br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="destino_02" id="affemg_02" value="Em Uso" checked>
+                    <label class="form-check-label" for="affemg">Em uso</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="destino_02" id="fundaffemg_02" value="Realocado">
+                    <label class="form-check-label" for="fundaffemg">Realocado</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="destino_02" id="fisco_02" value="Uso Indefinido">
+                    <label class="form-check-label" for="fisco">Uso Indefinido</label>
+                </div>  
+                <input type="submit" class="btn btn-primary" value="Cadastrar"  id="salvar_02">
+                <a class="btn btn-outline-primary" href="/">Voltar</a>
+                <button id="btnSalvarPdf_02" class="btn btn-danger">Salvar em PDF</button>
+            </form>
+        </div>
+    </div>  
+    </form>
+    </div>
+    {{!-- Pedidos salvos--}}
+    <div class="container">
+        <div class="row">
+            {{#each patrimonio_02}}
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="texto">
+                            <p>Andar: {{andar_02}}</p>
+                            <p>N° do Patrimônio: {{Npatrimonio_02}}</p>
+                            <p>Empresa: {{empresa_02}}</p>
+                            <p>Nome: {{nome_02}}</p>
+                            <p>Setor: {{setor_02}}</p>
+                            <p>data: {{formatDate data_02}}</p>
+                            <p>Descrição: {{descricao_02}}</p>
+                            <p>Destino: {{destino_02}} </p>
+                        </div>
+                        <a href="/patrimonioEditar_02/{{id}}" class="btn btn-outline-warning">Editar</a>
+                        <a class="btn btn-outline-danger" href="/excluir_02/{{id}}">Excluir</a>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </form>
+    </div>
+</main>
+<script src="/js/patrimonio_02.js"></script>

@@ -1,0 +1,21 @@
+body {
+  font-size: 17px;
+}
+
+.card {
+  width: 90%;
+  margin: 20px auto;
+  padding: 10px;
+}
+
+.andar {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.textpatrimonio {
+  width: 90%;
+  margin: 30px auto;
+  font-size: 1.3em;
+  position: static;
+}
