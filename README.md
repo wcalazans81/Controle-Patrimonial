@@ -12,4 +12,5 @@ npm init
 npm install nodemon  
 nodemon app.js  
 Após rodar os comandos o terminal retornará se falta alguma dependência ou pacotes.   
-Para usar a aplicação basta abrir o navegador digitar http://localhost:8080/
+Para usar a aplicação basta abrir o navegador digitar http://localhost:8080/  
+[Curso em Vídeo](https://www.youtube.com/c/CursoemV%C3%ADdeo)
