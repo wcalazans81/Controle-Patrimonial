@@ -4,7 +4,7 @@
 Este sistema foi criado para melhorar o controle patrimonial.  
 Esta versão 1.0 é simples e eficiente para o controle de patrimônio.  
 Projeto desenvolvido com as seguintes tecnologias:  
-"express", "express-handlebars", "bootstrep", "mysql"
+"express", "express-handlebars", "bootstrep", "mysql"  
 Instruções de instalação  
 ```Bash```
 npm i express  
